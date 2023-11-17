@@ -34,7 +34,29 @@ def user_menu():
 
 def main():
     """ БАКА СИНДЗИ НЕ ЛЕЗЕТ В РОБОТА """
-    print(user_menu())
+    print("\nВас приветствует программа по работе",
+          "с файлами в python")
+    print("Практическую выполнил Ходыкин Александр\n")
+    data =  {"Арбузы" : {"цена":"29",
+                      "осталось":"132", "единица измерения":"кг"}}
+    
+    while True:
+        task = user_menu()
+        match task:
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 6:
+                pass
+            case 7:
+                break
 
 if __name__ == "__main__":
     main()
