@@ -44,6 +44,18 @@ def fourth_task(data):
 
     data.update({unv_name : {"price":price,
                              "surplus":surplus, "units":units}})
+    
+def fifth_task(data, name):
+    """ delete object """
+    if second_task(data, name):
+        usr_decis = get_correct_input("int", [0, 1],
+                 "Вы действительно хотите удалить запись?" + "\n"+
+                 "0 - нет \n1 - да\n")
+        if usr_decis == 1:
+            data.pop(name)
+        return 1
+    print("Такого товара нет")
+    return 0
 
 def get_correct_input(value_type = "str",
                        posbl_value = None, usr_str = "Введите значение"):
@@ -104,9 +116,9 @@ def main():
                     get_correct_input("int", [0, 1], user_menu_str)
                 third_task(data, number, bool(operation))
             case 4:
-                fourth_task()
+                fourth_task(data)
             case 5:
-                pass
+                fifth_task(data, input("Введите название товара: "))
             case 6:
                 with open("data.pickle", "wb") as write_file:
                     pickle.dump(data, write_file)
