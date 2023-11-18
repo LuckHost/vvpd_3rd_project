@@ -65,7 +65,8 @@ def main():
             case 5:
                 pass
             case 6:
-                pass
+                with open("data.pickle", "wb") as write_file:
+                    pickle.dump(data, write_file)
             case 7:
                 break
 
