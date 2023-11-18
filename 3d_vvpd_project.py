@@ -11,6 +11,17 @@ def first_task():
               " проверьте указанный путь")
         return None
 
+def second_task(data, name = ""):
+    """ find dict by name """
+    if name in data:
+        print("Название: "+ name + "\n",
+              "Цена: ", data[name]["price"]+ "\n",
+              "Осталось: ", data[name]["surplus"]+ "\n",
+            "Ед. измерения: ", data[name]["units"])
+        return True
+    print("Товара ", name, " нет в списке")
+    return False
+
 def get_correct_input(value_type = "str",
                        posbl_value = None, usr_str = "Введите значение"):
     """ returns correct input values (int or string)"""
@@ -48,8 +59,8 @@ def main():
     print("\nВас приветствует программа по работе",
           "с файлами в python")
     print("Практическую выполнил Ходыкин Александр\n")
-    data =  {"Арбузы" : {"цена":"29",
-                      "осталось":"132", "единица измерения":"кг"}}
+    data =  {"Арбузы" : {"price":"29",
+                      "surplus":"132", "units":"кг"}}
     
     while True:
         task = user_menu()
@@ -57,7 +68,9 @@ def main():
             case 1:
                 data = first_task()
             case 2:
-                pass
+                product = \
+                    get_correct_input("str", [], "Введите название товара")
+                second_task(data, product)
             case 3:
                 pass
             case 4:
