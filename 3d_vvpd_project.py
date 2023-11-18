@@ -1,4 +1,6 @@
 import pickle
+""" importing pickle 
+unexpected, isn't it?"""
 
 def first_task():
     """ get dict from the file """
@@ -84,7 +86,7 @@ def main():
                 number = \
                     get_correct_input("int", [], "Введите число для фильтра: ")
                 user_menu_str = \
-                    "Введите операцию:\n0 - меньше заданного числа\n1 - больше заданного числа"
+                    "Введите операцию:\n0 - меньше заданного числа: \n1 - больше заданного числа: "
                 operation = \
                     get_correct_input("int", [0, 1], user_menu_str)
                 third_task(data, number, bool(operation))
