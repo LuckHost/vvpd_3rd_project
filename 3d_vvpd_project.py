@@ -1,5 +1,16 @@
 import pickle
 
+def first_task():
+    """ get dict from the file """
+    path = input("Укажите путь до файла: ")
+    try:
+        with open(path, "r", encoding="utf-8") as file:
+            return pickle.load(file)
+    except FileNotFoundError:
+        print("Что-то пошло не так,",
+              " проверьте указанный путь")
+        return None
+
 def get_correct_input(value_type = "str",
                        posbl_value = None, usr_str = "Введите значение"):
     """ returns correct input values (int or string)"""
@@ -44,7 +55,7 @@ def main():
         task = user_menu()
         match task:
             case 1:
-                pass
+                data = first_task()
             case 2:
                 pass
             case 3:
