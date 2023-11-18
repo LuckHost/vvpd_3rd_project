@@ -22,6 +22,14 @@ def second_task(data, name = ""):
     print("Товара ", name, " нет в списке")
     return False
 
+def third_task(data, number, operation):
+    """ surplus count filter """
+    for i in data:
+        # operation = True --> ">"
+        # False --> "<"
+        if (int(data[i]["surplus"]) > number) == operation:
+            print(i, " ", data[i])
+
 def get_correct_input(value_type = "str",
                        posbl_value = None, usr_str = "Введите значение"):
     """ returns correct input values (int or string)"""
@@ -34,7 +42,8 @@ def get_correct_input(value_type = "str",
         if value_type == "int":
             try:
                 int_inp_value = int(inp_value)
-                if int_inp_value in posbl_value:
+                if int_inp_value in posbl_value \
+                    or posbl_value == []:
                     return int_inp_value
             except ValueError:
                 pass
@@ -69,10 +78,16 @@ def main():
                 data = first_task()
             case 2:
                 product = \
-                    get_correct_input("str", [], "Введите название товара")
+                    get_correct_input("str", [], "Введите название товара: ")
                 second_task(data, product)
             case 3:
-                pass
+                number = \
+                    get_correct_input("int", [], "Введите число для фильтра: ")
+                user_menu_str = \
+                    "Введите операцию:\n0 - меньше заданного числа\n1 - больше заданного числа"
+                operation = \
+                    get_correct_input("int", [0, 1], user_menu_str)
+                third_task(data, number, bool(operation))
             case 4:
                 pass
             case 5:
