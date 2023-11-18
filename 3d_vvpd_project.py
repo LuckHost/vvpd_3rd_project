@@ -32,6 +32,19 @@ def third_task(data, number, operation):
         if (int(data[i]["surplus"]) > number) == operation:
             print(i, " ", data[i])
 
+def fourth_task(data):
+    """ add new object """
+    unv_name = input("Введите название товара: ")
+    if unv_name in data:
+        print("Данный товар уже есть в списке!\n")
+        return 0
+    price = input("Введите цену: ")
+    surplus = input("Введите количество остатка: ")
+    units = input("Введите ед. измерения: ")
+
+    data.update({unv_name : {"price":price,
+                             "surplus":surplus, "units":units}})
+
 def get_correct_input(value_type = "str",
                        posbl_value = None, usr_str = "Введите значение"):
     """ returns correct input values (int or string)"""
@@ -91,7 +104,7 @@ def main():
                     get_correct_input("int", [0, 1], user_menu_str)
                 third_task(data, number, bool(operation))
             case 4:
-                pass
+                fourth_task()
             case 5:
                 pass
             case 6:
